@@ -32,8 +32,13 @@ console.log(movies);
 
 const movieList = document.getElementById ("movie-list");
 
-const addMoviesToDom = (movies) =>{
+let addMoviesToDom = movies.map (movie => {
+    const movieName = movie.Title
+    const newLi = document.createElement ("li");
+    newLi.appendChild(document.createTextNode(movieList));
+    newLi.innerHTML = movieName;
+    movieList.appendChild(newLi);
+    return movie.Title
+});
 
-}
-
-
+console.log(addMoviesToDom);
