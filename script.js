@@ -28,17 +28,27 @@
 //     document.getElementById("new").checked = false;
 // }
 
-console.log(movies);
+// console.log(movies);
 
 const movieList = document.getElementById ("movie-list");
 
+// let addMoviesToDom = movies.map (movie => {
+//     const movieName = movie.Title
+//     const newLi = document.createElement ("li");
+//     newLi.appendChild(document.createTextNode(movieList));
+//     newLi.innerHTML = movieName;
+//     movieList.appendChild(newLi);
+//     return movie.Title;
+// });
+
 let addMoviesToDom = movies.map (movie => {
-    const movieName = movie.Title
-    const newLi = document.createElement ("li");
-    newLi.appendChild(document.createTextNode(movieList));
-    newLi.innerHTML = movieName;
-    movieList.appendChild(newLi);
-    return movie.Title
+    const moviePoster = document.createElement ("img");
+    const posterA = document.createElement ("a");
+    // posterA.classList.add('movie__poster');
+    moviePoster.src = movie.Poster;
+    movieList.appendChild(posterA);
+    posterA.appendChild(moviePoster);
+    return movie.Title;
 });
 
 console.log(addMoviesToDom);
