@@ -17,7 +17,6 @@ const addMoviesToDom = (movies) =>{
         movieList.appendChild(movieLi);
         movieLi.appendChild(posterLink);
         posterLink.appendChild(moviePoster);
-        // movie.Title.toLowerCase();
     });
 };
 addMoviesToDom(movies);
@@ -29,28 +28,13 @@ const eventListeners = () => {
         movieFilter(event.target.id)
         });
     });
-
-    // searchBar.addEventListener ('keyup', (event) => {
-    //     // 1. grab the search-term(input of user)
-    //     const term = e.target.value.toLowerCase();
-    //     // 2. grab all the li tags to connect it to the search element
-    //     const grabMovies = list.getElementsByTagName('li');
-    //     Array.from(grabMovies).forEach(function(grabMovie){
-    //         const title = movie.Title;
-    //         if (title.toLowerCase().indexOf(term) != -1){
-    //             grabMovie.style.display = 'block';
-    //         } else {
-    //             grabMovie.style.display = 'none';
-    //         }
-    //     });
-    // filter de uitkomst op de input'value'
     
-        
-        // movieFilter(event.target.value.toLowerCase());
-    //     radioButtons.forEach(radio => { 
-    //         radio.checked = false;
-    //     });
-    // });
+    searchBar.addEventListener ('keydown', (event) => {
+        movieFilter(event.target.value.toLowerCase());
+        radioButtons.forEach(radio => { 
+            radio.checked = false;
+        });
+    });
     
 
     clearButton.addEventListener ('click', () => {
@@ -63,7 +47,6 @@ const eventListeners = () => {
     });
 };
 eventListeners(radioButtons, searchBar, clearButton);
-
 
 const movieFilter = (event) => {
     let filterMovies = movies;
@@ -84,11 +67,10 @@ const movieFilter = (event) => {
                 filterMovies = movies.filter (movie => movie.Year > 2014)
                 break;
             default:
-                addMoviesToDom;
+                filterMovies = movies.filter(movie => movie.Title.toLowerCase().includes(event));
+                // addMoviesToDom;
     }
     movieList.innerHTML = ' ';
     addMoviesToDom(filterMovies);
 }
 
-// default? >>
-// filterMovies = movies.filter(movie => movie.Title.toLowerCase().includes(event));
