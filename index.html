@@ -7,30 +7,31 @@
     <script defer type= "text/javascript" src="database.js"></script>
     <script defer type="text/javascript" src="script.js"></script>
 </head>
-
-<header>
-    <div class="logo"> LOGO </div>
-    <div class="search"> Zoekbalk </div>
-    <nav class="radio-buttons">
-            <button><input type="radio" name="buttons" id="new" value="new"> <label for="new">New</label></button>
-            <button><input type="radio" name="buttons" id="x-men" value="x-men"> <label for="x-men">X-Men</label></button>
-            <button><input type="radio" name="buttons" id="avengers" value="avengers"> <label for="avengers">Avengers</label> </button>
-            <button><input type="radio" name="buttons" id="batman" value="batman"> <label for="batman">Batman</label> </button>
-            <button><input type="radio" name="buttons" id="princess" value="princess"> <label for="princess">Princess</label> </button>
-    </nav>
-</header>
-
 <body>
-    <div class="movie-container">
-        <ul id="movie-list">
-            
-        </ul>
-    </div>
+
+    <header>
+        <div class="title"> Title </div>
+    
+        <div><input id="searchbar" type="text" placeholder="Search here.." name="search">
+        </div>
+    
+        <nav id="radio-buttons">
+            <button><input type="radio" class="radio" name="radio-button" id="new" value="new"> <label for="new">New</label></button>
+            <button><input type="radio" class="radio" name="radio-button" id="x-men" value="x-men"> <label for="x-men">X-Men</label></button>
+            <button><input type="radio" class="radio" name="radio-button" id="avengers" value="avengers"> <label for="avengers">Avengers</label></button>
+            <button><input type="radio" class="radio" name="radio-button" id="batman" value="batman"> <label for="batman">Batman</label> </button>
+            <button><input type="radio" class="radio" name="radio-button" id="princess" value="princess"> <label for="princess">Princess</label> </button>
+        </nav>
+    </header>
+
+    <main>
+        <ul id="movie-list"></ul>
+    </main>
+
+
+    <footer> Copyright © 2020 by Merel Volgers
+    </footer>
 
 </body>
-
-<footer>
-Copyright: Merel Volgers 2020
-</footer>
 
 </html>
