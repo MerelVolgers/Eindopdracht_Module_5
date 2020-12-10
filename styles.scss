@@ -1,34 +1,67 @@
-html {
-    font-family: verdana;
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #999;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "h"
+        "n"
+        "m"
+        "f";
+}
+
+header {
+    grid-area: h;
+    margin: 30px;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
+    grid-area: n;
+    margin: 10px;
+}
+
+main {
+    grid-area: m;
+}
+
+li {
+    list-style: none;
+}
+
+footer {
+    grid-area: f;
+}
+
+input.radio {
+    appearance: none;
+    border-radius: 25%;
+    width: 16px;
+    height: 16px;
+    border: 2px solid black;
+    transition: 0.2s all linear;
+    position: relative;
+
+    &:checked {
+        border: 6px solid black;
+    }
+
+    &:hover {
+        border: 6px solid rgb(117, 110, 110);
+    }
 }
 
 label {
-    margin-right: 15px;
-    line-height: 32px;
-}
-
-input {
-    appearance: none;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #999;
-    transition: 0.2s all linear;
-    margin-right: 5px;
-    position: relative;
-    top: 4px;
-}
-
-input:checked {
-    border: 6px solid black;
-}
-
-input:hover{
-    border: 6px solid grey;
+    margin: 15px;
+    line-height: 10px;
 }

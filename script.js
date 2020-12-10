@@ -1,5 +1,7 @@
 const movieList = document.getElementById ("movie-list");
 const radioButtons = document.querySelectorAll(".radio");
+const searchBar = document.getElementById("searchbar");
+const clearButton = document.getElementById("clear");
 
 const addMoviesToDom = (movies) =>{
     const listedMovies = movies.map (movie => {
@@ -10,56 +12,83 @@ const addMoviesToDom = (movies) =>{
         posterLink.classList.add('poster__link');
         moviePoster.classList.add('movie__poster');
         moviePoster.src = movie.Poster;
+        posterLink.href = `http://www.imdb.com/title/${movie.imdbID}`;
+        posterLink.target = `_blank`;
         movieList.appendChild(movieLi);
         movieLi.appendChild(posterLink);
         posterLink.appendChild(moviePoster);
+        // movie.Title.toLowerCase();
     });
 };
 addMoviesToDom(movies);
 
 const eventListeners = () => {
+
     Array.from(radioButtons).forEach ((radio) => {
         radio.addEventListener ('change', (event) => {
-        handleOnChangeEvent(event.target.id)
+        movieFilter(event.target.id)
         });
     });
-}
-eventListeners(radioButtons);
 
-const handleOnChangeEvent = (event) => {
+    // searchBar.addEventListener ('keyup', (event) => {
+    //     // 1. grab the search-term(input of user)
+    //     const term = e.target.value.toLowerCase();
+    //     // 2. grab all the li tags to connect it to the search element
+    //     const grabMovies = list.getElementsByTagName('li');
+    //     Array.from(grabMovies).forEach(function(grabMovie){
+    //         const title = movie.Title;
+    //         if (title.toLowerCase().indexOf(term) != -1){
+    //             grabMovie.style.display = 'block';
+    //         } else {
+    //             grabMovie.style.display = 'none';
+    //         }
+    //     });
+    // filter de uitkomst op de input'value'
+    
+        
+        // movieFilter(event.target.value.toLowerCase());
+    //     radioButtons.forEach(radio => { 
+    //         radio.checked = false;
+    //     });
+    // });
+    
+
+    clearButton.addEventListener ('click', () => {
+        movieList.innerHTML = ' ';
+        searchBar.value = '';
+        radioButtons.forEach(radio => { 
+            radio.checked = false;
+        })
+        addMoviesToDom(movies);
+    });
+};
+eventListeners(radioButtons, searchBar, clearButton);
+
+
+const movieFilter = (event) => {
     let filterMovies = movies;
     switch (event) {
             case 'x-men':
-                console.log("ik ben een X-Men film")
                 filterMovies = movies.filter (movie => movie.Title.includes('X-Men'));
-                console.log(filterMovies);
                 break;
             case 'avengers':
-                console.log("ik ben een Avengers film")
                 filterMovies = movies.filter (movie => movie.Title.includes('Avengers'));
-                console.log(filterMovies);
                 break;
             case 'batman':
-                console.log("ik ben een Batman film")
                 filterMovies = movies.filter (movie => movie.Title.includes('Batman'));
-                console.log(filterMovies);
                 break;
             case 'princess':
-                console.log("ik ben een Princess film")
                 filterMovies = movies.filter (movie => movie.Title.includes('Princess'));
-                console.log(filterMovies);
                 break;
             case 'new': 
-                console.log("ik ben een nieuwe film")
                 filterMovies = movies.filter (movie => movie.Year > 2014)
-                console.log(filterMovies);
                 break;
             default:
                 addMoviesToDom;
     }
-    const empty = () => {
-        movieList.innerHTML = ' ';
-    };
-    empty();
+    movieList.innerHTML = ' ';
     addMoviesToDom(filterMovies);
 }
+
+// default? >>
+// filterMovies = movies.filter(movie => movie.Title.toLowerCase().includes(event));

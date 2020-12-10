@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eindopdracht Module 5 Javascript Advanced - Merel Volgers</title>
+    <link rel="stylesheet" type="text/css" href="dist/styles.css">
+    
     <script defer type= "text/javascript" src="database.js"></script>
     <script defer type="text/javascript" src="script.js"></script>
+
+    <title>Eindopdracht Module 5 Javascript Advanced - Merel Volgers</title>
+
 </head>
 <body>
-
+    <div class="container">
     <header>
         <div class="title"> Title </div>
     
-        <div><input id="searchbar" type="text" placeholder="Search here.." name="search">
+        <div><input id="searchbar" type="text" placeholder="Search for a movie.." name="searchbar">
         </div>
     
         <nav id="radio-buttons">
-            <button><input type="radio" class="radio" name="radio-button" id="new" value="new"> <label for="new">New</label></button>
-            <button><input type="radio" class="radio" name="radio-button" id="x-men" value="x-men"> <label for="x-men">X-Men</label></button>
-            <button><input type="radio" class="radio" name="radio-button" id="avengers" value="avengers"> <label for="avengers">Avengers</label></button>
-            <button><input type="radio" class="radio" name="radio-button" id="batman" value="batman"> <label for="batman">Batman</label> </button>
-            <button><input type="radio" class="radio" name="radio-button" id="princess" value="princess"> <label for="princess">Princess</label> </button>
+            <input type="radio" class="radio" name="radio-button" id="new" value="new"> <label for="new">New</label>
+            <input type="radio" class="radio" name="radio-button" id="x-men" value="x-men"> <label for="x-men">X-Men</label>
+            <input type="radio" class="radio" name="radio-button" id="avengers" value="avengers"> <label for="avengers">Avengers</label>
+            <input type="radio" class="radio" name="radio-button" id="batman" value="batman"> <label for="batman">Batman</label> 
+            <input type="radio" class="radio" name="radio-button" id="princess" value="princess"> <label for="princess">Princess</label>
         </nav>
+        <button id="clear" class="clear"> Clear All</button>
     </header>
 
     <main>
@@ -31,7 +36,7 @@
 
     <footer> Copyright © 2020 by Merel Volgers
     </footer>
-
+    </div>
 </body>
 
 </html>

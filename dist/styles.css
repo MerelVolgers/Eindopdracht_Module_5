@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #999;
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: "h" "n" "m" "f";
+}
+
+header {
+  grid-area: h;
+  margin: 30px;
+}
+
+nav {
+  grid-area: n;
+  margin: 10px;
+}
+
+main {
+  grid-area: m;
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  grid-area: f;
+}
+
+input.radio {
+  appearance: none;
+  border-radius: 25%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid black;
+  transition: 0.2s all linear;
+  position: relative;
+}
+input.radio:checked {
+  border: 6px solid black;
+}
+input.radio:hover {
+  border: 6px solid #756e6e;
+}
+
+label {
+  margin: 15px;
+  line-height: 10px;
+}
