@@ -2,6 +2,7 @@ const movieList = document.getElementById ("movie-list");
 const radioButtons = document.querySelectorAll(".radio");
 const searchBar = document.getElementById("searchbar");
 const clearButton = document.getElementById("clear");
+const logo = document.getElementById("logo");
 
 const addMoviesToDom = (movies) =>{
     const listedMovies = movies.map (movie => {
@@ -12,6 +13,7 @@ const addMoviesToDom = (movies) =>{
         posterLink.classList.add('poster__link');
         moviePoster.classList.add('movie__poster');
         moviePoster.src = movie.Poster;
+        // moviePoster.style.width = "150px";
         posterLink.href = `http://www.imdb.com/title/${movie.imdbID}`;
         posterLink.target = `_blank`;
         movieList.appendChild(movieLi);
@@ -25,11 +27,11 @@ const eventListeners = () => {
 
     Array.from(radioButtons).forEach ((radio) => {
         radio.addEventListener ('change', (event) => {
-        movieFilter(event.target.id)
+        movieFilter(event.target.value)
         });
     });
     
-    searchBar.addEventListener ('keydown', (event) => {
+    searchBar.addEventListener ('keyup', (event) => {
         movieFilter(event.target.value.toLowerCase());
         radioButtons.forEach(radio => { 
             radio.checked = false;
@@ -45,8 +47,15 @@ const eventListeners = () => {
         })
         addMoviesToDom(movies);
     });
+
+    logo.addEventListener ('mouseover', (event) => {
+        logo.src="images/welcome.jpg"
+    });
+    logo.addEventListener('mouseout', (event) =>{
+        logo.src="images/popcorn.jpg"
+    });
 };
-eventListeners(radioButtons, searchBar, clearButton);
+eventListeners(radioButtons, searchBar, clearButton, logo);
 
 const movieFilter = (event) => {
     let filterMovies = movies;
@@ -68,9 +77,7 @@ const movieFilter = (event) => {
                 break;
             default:
                 filterMovies = movies.filter(movie => movie.Title.toLowerCase().includes(event));
-                // addMoviesToDom;
     }
     movieList.innerHTML = ' ';
     addMoviesToDom(filterMovies);
 }
-

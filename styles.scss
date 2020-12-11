@@ -2,12 +2,13 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #999;
-    color: white;
+    color: black;
 }
 
 .container {
@@ -19,6 +20,18 @@ body {
         "n"
         "m"
         "f";
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 40%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #999;
+
+    &:hover {
+        border: 2px solid rgb(117, 110, 110);
+    }
 }
 
 header {
@@ -57,7 +70,7 @@ input.radio {
     }
 
     &:hover {
-        border: 6px solid rgb(117, 110, 110);
+        border: 2px solid rgb(117, 110, 110);
     }
 }
 

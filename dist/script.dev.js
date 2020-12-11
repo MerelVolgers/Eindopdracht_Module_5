@@ -4,6 +4,7 @@ var movieList = document.getElementById("movie-list");
 var radioButtons = document.querySelectorAll(".radio");
 var searchBar = document.getElementById("searchbar");
 var clearButton = document.getElementById("clear");
+var logo = document.getElementById("logo");
 
 var addMoviesToDom = function addMoviesToDom(movies) {
   var listedMovies = movies.map(function (movie) {
@@ -13,7 +14,8 @@ var addMoviesToDom = function addMoviesToDom(movies) {
     movieLi.classList.add('movie__li');
     posterLink.classList.add('poster__link');
     moviePoster.classList.add('movie__poster');
-    moviePoster.src = movie.Poster;
+    moviePoster.src = movie.Poster; // moviePoster.style.width = "150px";
+
     posterLink.href = "http://www.imdb.com/title/".concat(movie.imdbID);
     posterLink.target = "_blank";
     movieList.appendChild(movieLi);
@@ -27,10 +29,10 @@ addMoviesToDom(movies);
 var eventListeners = function eventListeners() {
   Array.from(radioButtons).forEach(function (radio) {
     radio.addEventListener('change', function (event) {
-      movieFilter(event.target.id);
+      movieFilter(event.target.value);
     });
   });
-  searchBar.addEventListener('keydown', function (event) {
+  searchBar.addEventListener('keyup', function (event) {
     movieFilter(event.target.value.toLowerCase());
     radioButtons.forEach(function (radio) {
       radio.checked = false;
@@ -44,9 +46,15 @@ var eventListeners = function eventListeners() {
     });
     addMoviesToDom(movies);
   });
+  logo.addEventListener('mouseover', function (event) {
+    logo.src = "images/welcome.jpg";
+  });
+  logo.addEventListener('mouseout', function (event) {
+    logo.src = "images/popcorn.jpg";
+  });
 };
 
-eventListeners(radioButtons, searchBar, clearButton);
+eventListeners(radioButtons, searchBar, clearButton, logo);
 
 var movieFilter = function movieFilter(event) {
   var filterMovies = movies;
@@ -86,7 +94,6 @@ var movieFilter = function movieFilter(event) {
       filterMovies = movies.filter(function (movie) {
         return movie.Title.toLowerCase().includes(event);
       });
-    // addMoviesToDom;
   }
 
   movieList.innerHTML = ' ';
