@@ -1,80 +1,93 @@
 * {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: 'Fjalla One', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     background-color: #999;
     color: black;
-}
+    text-align: center;
 
-.container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "h"
-        "n"
-        "m"
-        "f";
-}
+    header{
+        nav {
+            input.radio {
+                appearance: none;
+                border-radius: 25%;
+                width: 16px;
+                height: 16px;
+                border: 2px solid black;
+                transition: 0.2s all linear;
+                position: relative;
+            
+                &:checked {
+                    border: 6px solid black;
+                }
+            
+                &:hover {
+                    border: 2px solid rgb(117, 110, 110);
+                }
+            }
+        
+            .label{
+            margin: 15px;
+            line-height: 10px;
+            }
+        }
+        button {
+            border: 2px solid black;
+            border-radius: 40%;
+            padding: 10px;
+            margin: 10px;
+            background-color: #999;
+        
+            &:hover {
+                border: 2px solid rgb(117, 110, 110);
+            }
+        }
+    }
+    
+    main{
+        .container{
+            margin:10px;
+            display: -ms-grid;
+            display:grid;
+            -ms-grid-columns: 100%;
+            grid-template-columns: 100%;
+            grid-gap:5px;
+            justify-content: center;
+            align-items: center;
+        }
+        .movie_list{
+            position:relative;
 
-button {
-    border: 2px solid black;
-    border-radius: 40%;
-    padding: 10px;
-    margin: 10px;
-    background-color: #999;
+            .movie__li{
+                position: relative;
+                list-style-type: none;
+                
+                .poster__link{
+                    position:relative;
 
-    &:hover {
-        border: 2px solid rgb(117, 110, 110);
+                    .movie__poster{
+                        position:relative;
+                    }
+                }
+            }
+        }
     }
 }
 
-header {
-    grid-area: h;
-    margin: 30px;
-}
-
-nav {
-    grid-area: n;
-    margin: 10px;
-}
-
-main {
-    grid-area: m;
-}
-
-li {
-    list-style: none;
-}
-
-footer {
-    grid-area: f;
-}
-
-input.radio {
-    appearance: none;
-    border-radius: 25%;
-    width: 16px;
-    height: 16px;
-    border: 2px solid black;
-    transition: 0.2s all linear;
-    position: relative;
-
-    &:checked {
-        border: 6px solid black;
-    }
-
-    &:hover {
-        border: 2px solid rgb(117, 110, 110);
+@media (min-width: 768px) {
+    .container {
+        -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
     }
 }
 
-label {
-    margin: 15px;
-    line-height: 10px;
+@media (min-width: 1024px) {
+    .container {
+        -ms-grid-columns: 30% 30% 30%;
+        grid-template-columns: 30% 30% 30%;
+    }
 }
+
+@media (min-width: 1600px) {}

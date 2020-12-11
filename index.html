@@ -12,15 +12,16 @@
     <title>Eindopdracht Module 5 Javascript Advanced - Merel Volgers</title>
 
 </head>
+
 <body>
-    <div class="container">
+    
     <header>
         <div> <img id="logo" src="images/popcorn.jpg" width="100px" height ="100px" />  
         </div>
-    
+
         <div><input id="searchbar" type="text" placeholder="Search for a movie.." name="searchbar">
         </div>
-    
+
         <nav id="radio-buttons">
             <input type="radio" class="radio" name="radio-button" id="new" value="new"> <label for="new">New</label>
             <input type="radio" class="radio" name="radio-button" id="x-men" value="x-men"> <label for="x-men">X-Men</label>
@@ -28,17 +29,19 @@
             <input type="radio" class="radio" name="radio-button" id="batman" value="batman"> <label for="batman">Batman</label> 
             <input type="radio" class="radio" name="radio-button" id="princess" value="princess"> <label for="princess">Princess</label>
         </nav>
+
         <button id="clear" class="clear"> Clear All</button>
     </header>
 
     <main>
-        <ul id="movie-list"></ul>
+        <div class="container">
+            <ul id="movie-list" class="movie_list"></ul>
+        </div>
     </main>
-
-
-    <footer> Copyright © 2020 by Merel Volgers
+    
+    <footer> 
+        <h1>Copyright © 2020 by Merel Volgers</h1>
     </footer>
-    </div>
 </body>
 
 </html>

@@ -14,8 +14,7 @@ var addMoviesToDom = function addMoviesToDom(movies) {
     movieLi.classList.add('movie__li');
     posterLink.classList.add('poster__link');
     moviePoster.classList.add('movie__poster');
-    moviePoster.src = movie.Poster; // moviePoster.style.width = "150px";
-
+    moviePoster.src = movie.Poster;
     posterLink.href = "http://www.imdb.com/title/".concat(movie.imdbID);
     posterLink.target = "_blank";
     movieList.appendChild(movieLi);
@@ -30,19 +29,20 @@ var eventListeners = function eventListeners() {
   Array.from(radioButtons).forEach(function (radio) {
     radio.addEventListener('change', function (event) {
       movieFilter(event.target.value);
+      searchBar.value = '';
     });
   });
   searchBar.addEventListener('keyup', function (event) {
     movieFilter(event.target.value.toLowerCase());
     radioButtons.forEach(function (radio) {
-      radio.checked = false;
+      return radio.checked = false;
     });
   });
   clearButton.addEventListener('click', function () {
     movieList.innerHTML = ' ';
     searchBar.value = '';
     radioButtons.forEach(function (radio) {
-      radio.checked = false;
+      return radio.checked = false;
     });
     addMoviesToDom(movies);
   });
