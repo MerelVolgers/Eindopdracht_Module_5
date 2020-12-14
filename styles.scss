@@ -1,8 +1,16 @@
 
+*{
+    box-sizing:border-box;
+}
+
+$textcolor: rgb(165,197,90);
+$backgroundcolor: rgb(228,236,182);
+$hovercolor: whitesmoke;
+
 body {
     font-family: 'Fjalla One', sans-serif;
-    background-color: rgb(228, 236, 182);
-    color: rgb(165, 197, 90);
+    background-color: $backgroundcolor;
+    color: $textcolor;
     text-align: center;
     margin:0px;
     padding:0px;
@@ -16,7 +24,7 @@ body {
         text-align: center;
 
         input {
-            border: 9px solid rgb(165, 197, 90);
+            border: 9px solid $textcolor;
             padding:10px;
             margin:20px;
             background-color: transparent;
@@ -25,12 +33,12 @@ body {
         button.clear{
             background-color: transparent;
             border-radius: 100%;
-            border-color: rgb(165, 197, 90);
+            border-color: $textcolor;
             padding:10px;
 
             &:hover{
-                border-color: whitesmoke;
-                color:whitesmoke;
+                border-color:$hovercolor;
+                color:$hovercolor;
                 transform: scale(1.2);
                 transition: 0.2s;
             }
@@ -43,19 +51,19 @@ body {
 
         button {
             align-items: center;
-            border: rgb(165, 197, 90);
+            border: $textcolor;
             background-color:transparent;
-            color: rgb(165, 197, 90);
+            color: $textcolor;
             font-family: 'Fjalla One', sans-serif;
             font-size:20px;
             margin:10px;
             padding:10px;
             
             &:hover {
-                color:whitesmoke;
+                color:$hovercolor;
                 transform: rotate(-20deg) scale(2.0);
                 transition: 0.2s;
-                border: 2px solid whitesmoke;
+                border: 2px solid $hovercolor;
             }
         }   
     }
@@ -103,7 +111,7 @@ body {
 
         .socials{
             list-style-type: none;
-            color:whitesmoke;
+            color: $hovercolor;
 
             i{
             padding:2px;
@@ -115,10 +123,8 @@ body {
                 }
             }
 
-            a{
-                &:visited{
-                    color:rgb(165, 197, 90);
-                    }
+            a:visited{
+                color:$textcolor;
             }
         }
     }

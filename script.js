@@ -26,7 +26,7 @@ const eventListeners = () => {
 
     Array.from(radioButtons).forEach ((radio) => {
         radio.addEventListener ('change', (event) => {
-        movieFilter(event.target.value)
+        movieFilter(event.target.value);
         searchBar.value='';
         });
     });

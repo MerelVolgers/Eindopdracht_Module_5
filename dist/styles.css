@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Fjalla One", sans-serif;
   background-color: #e4ecb6;
