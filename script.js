@@ -44,10 +44,10 @@ const eventListeners = () => {
     });
 
     logo.addEventListener ('mouseover', (event) => {
-        logo.src="images/welcome.jpg"
+        logo.src="images/popcorn.png"
     });
     logo.addEventListener('mouseout', (event) =>{
-        logo.src="images/popcorn.jpg"
+        logo.src="images/film.png"
     });
 };
 eventListeners(radioButtons, searchBar, clearButton, logo);

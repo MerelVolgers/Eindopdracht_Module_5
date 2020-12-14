@@ -1,75 +1,117 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Fjalla One", sans-serif;
-  background-color: #999;
-  color: black;
+  background-color: #e4ecb6;
+  color: #a5c55a;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+body h1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+body header {
   text-align: center;
 }
-body header nav input.radio {
-  appearance: none;
-  border-radius: 25%;
-  width: 16px;
-  height: 16px;
-  border: 2px solid black;
-  transition: 0.2s all linear;
-  position: relative;
-}
-body header nav input.radio:checked {
-  border: 6px solid black;
-}
-body header nav input.radio:hover {
-  border: 2px solid #756e6e;
-}
-body header nav .label {
-  margin: 15px;
-  line-height: 10px;
-}
-body header button {
-  border: 2px solid black;
-  border-radius: 40%;
+body header input {
+  border: 9px solid #a5c55a;
   padding: 10px;
-  margin: 10px;
-  background-color: #999;
+  margin: 20px;
+  background-color: transparent;
 }
-body header button:hover {
-  border: 2px solid #756e6e;
+body header button.clear {
+  background-color: transparent;
+  border-radius: 100%;
+  border-color: #a5c55a;
+  padding: 10px;
+}
+body header button.clear:hover {
+  border-color: whitesmoke;
+  color: whitesmoke;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+body header nav input.radio {
+  display: none;
+}
+body header nav button {
+  align-items: center;
+  border: #a5c55a;
+  background-color: transparent;
+  color: #a5c55a;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+}
+body header nav button:hover {
+  color: whitesmoke;
+  transform: rotate(-20deg) scale(2);
+  transition: 0.2s;
+  border: 2px solid whitesmoke;
+}
+body main {
+  margin: 10px;
 }
 body main .container {
-  margin: 10px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 100%;
-  grid-template-columns: 100%;
-  grid-gap: 5px;
-  justify-content: center;
+  position: relative;
+  display: flex;
+}
+body main .container .movie_list {
+  position: relative;
   align-items: center;
 }
-body main .movie_list {
-  position: relative;
-}
-body main .movie_list .movie__li {
-  position: relative;
+body main .container .movie_list .movie__li {
+  display: flex;
   list-style-type: none;
+  float: left;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
 }
-body main .movie_list .movie__li .poster__link {
-  position: relative;
+body main .container .movie_list .movie__li .movie__poster {
+  height: 300px;
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  filter: grayscale(75%);
 }
-body main .movie_list .movie__li .poster__link .movie__poster {
-  position: relative;
+body main .container .movie_list .movie__li .movie__poster:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+body footer .socials {
+  list-style-type: none;
+  color: whitesmoke;
+}
+body footer .socials i {
+  padding: 2px;
+  margin: 2px;
+}
+body footer .socials i:hover {
+  transform: scale(2);
+  transition: 0.8s ease-in-out;
+}
+body footer .socials a:visited {
+  color: #a5c55a;
 }
 
 @media (min-width: 768px) {
-  .container {
-    -ms-grid-columns: 50% 50%;
-    grid-template-columns: 50% 50%;
+  input.searchbar {
+    width: 60%;
+  }
+
+  nav {
+    width: 80%;
   }
 }
 @media (min-width: 1024px) {
-  .container {
-    -ms-grid-columns: 30% 30% 30%;
-    grid-template-columns: 30% 30% 30%;
+  input.searchbar {
+    width: 75%;
+  }
+
+  nav {
+    width: 100%;
   }
 }

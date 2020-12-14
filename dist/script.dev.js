@@ -47,10 +47,10 @@ var eventListeners = function eventListeners() {
     addMoviesToDom(movies);
   });
   logo.addEventListener('mouseover', function (event) {
-    logo.src = "images/welcome.jpg";
+    logo.src = "images/popcorn.png";
   });
   logo.addEventListener('mouseout', function (event) {
-    logo.src = "images/popcorn.jpg";
+    logo.src = "images/film.png";
   });
 };
 
